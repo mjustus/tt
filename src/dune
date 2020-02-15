@@ -1,0 +1,13 @@
+(menhir
+ (modules parser)
+ (flags --table)
+)
+
+(executable
+ (name main)
+ (public_name tt)
+ (modes (byte exe))
+ (libraries prelude pprint sedlex menhirLib cmdliner)
+ (preprocess
+  (pps ppx_tools_versioned.metaquot_408 sedlex.ppx)))
+
